@@ -17,7 +17,7 @@ import retrofit2.Response
 class SubstractActivity : AppCompatActivity() {
     lateinit var binding: ActivitySubstractBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding= ActivitySubstractBinding.inflate(LayoutInflater.from())
+        binding= ActivitySubstractBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         getSubstract()
