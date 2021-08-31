@@ -16,9 +16,19 @@ class MainActivity : AppCompatActivity() {
     fun click(){
         binding.btnAddition.setOnClickListener {
             var intent= Intent(baseContext, AddActivity::class.java)
+            startActivity(intent)
         }
         binding.btnSubstraction.setOnClickListener {
             var intent= Intent(baseContext, SubstractActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnMultiplication.setOnClickListener {
+            var intent= Intent(baseContext, MultiplyActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnDivision.setOnClickListener {
+            var intent= Intent(baseContext,DivideActivity::class.java)
+            startActivity(intent)
         }
     }
 }

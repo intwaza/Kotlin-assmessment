@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LisaLabAssessment">
         <activity
+            android:name=".DivideActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MultiplyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".models.MultiplyActivity"
+            android:exported="true" />
+        <activity
             android:name=".SubstractActivity"
             android:exported="true" />
         <activity

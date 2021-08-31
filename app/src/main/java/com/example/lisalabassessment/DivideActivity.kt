@@ -2,44 +2,43 @@ package com.example.lisalabassessment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.Toast
 import com.example.lisalabassessment.api.ApiClient
 import com.example.lisalabassessment.api.ApiInterface
-import com.example.lisalabassessment.databinding.ActivitySubstractBinding
-
-import com.example.lisalabassessment.models.SubstractRequest
-import com.example.lisalabassessment.models.SubstractResponse
+import com.example.lisalabassessment.databinding.ActivityDivideBinding
+import com.example.lisalabassessment.models.DivideRequest
+import com.example.lisalabassessment.models.DivideResponse
+import com.example.lisalabassessment.models.MultiplyRequest
+import com.example.lisalabassessment.models.MultiplyResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SubstractActivity : AppCompatActivity() {
-    lateinit var binding: ActivitySubstractBinding
+class DivideActivity : AppCompatActivity() {
+    lateinit var binding: ActivityDivideBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding= ActivitySubstractBinding.inflate(LayoutInflater.from())
         super.onCreate(savedInstanceState)
+        binding= ActivityDivideBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        getSubstract()
     }
-    fun getSubstract() {
-        binding.btnSubstract.setOnClickListener {
-            var num1 = binding.etSubNum1.text.toString().toInt()
-            var num2 = binding.etSubNum2.text.toString().toInt()
-            var substractrequest = SubstractRequest(
+    fun getDivide() {
+        binding.btnDivide.setOnClickListener {
+            var num1 = binding.etDivNum1.text.toString().toInt()
+            var num2 = binding.etDivNum2.text.toString().toInt()
+            var dividerequest = DivideRequest(
                 numberOne = num1,
                 numberTwo = num2
 
             )
             val retrofit = ApiClient.buildApiClient(ApiInterface::class.java)
-            var request = retrofit.substract(substractrequest)
-            request.enqueue(object : Callback<SubstractResponse?> {
+            var request = retrofit.divide(dividerequest)
+            request.enqueue(object : Callback<DivideResponse?> {
                 override fun onResponse(
-                    call: Call<SubstractResponse?>,
-                    response: Response<SubstractResponse?>
+                    call: Call<DivideResponse?>,
+                    response: Response<DivideResponse?>
                 ) {
                     if (response.isSuccessful) {
-                        var result = num1 - num2
+                        var result = num1 / num2
                         Toast.makeText(baseContext, result, Toast.LENGTH_LONG).show()
                     } else {
                         Toast.makeText(
@@ -50,10 +49,11 @@ class SubstractActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<SubstractResponse?>, t: Throwable) {
+                override fun onFailure(call: Call<DivideResponse?>, t: Throwable) {
                     Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
                 }
             })
         }
     }
 }
+

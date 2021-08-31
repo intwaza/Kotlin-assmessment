@@ -11,6 +11,8 @@ interface ApiInterface {
     @POST("/calculator/subtract")
     fun substract(@Body substractRequest: SubstractRequest): Call<SubstractResponse>
     @POST("/calculator/multiply")
-    fun multiply(@Body multiplyRequest: MultiplyRequest): Call<MultiplyRequest>
+    fun multiply(@Body multiplyRequest: MultiplyRequest): Call<MultiplyResponse>
+    @POST("/calculator/divide")
+    fun divide(@Body divideRequest: DivideRequest): Call<DivideResponse>
 
 }

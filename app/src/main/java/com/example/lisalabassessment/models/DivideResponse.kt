@@ -1,5 +1,5 @@
 package com.example.lisalabassessment.models
 
-data class MultiplyResponse(
+data class DivideResponse(
     var result: Int
 )
